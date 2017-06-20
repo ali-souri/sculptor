@@ -1,0 +1,12 @@
+<h2 data-id="{{id}}" class="demoHeaders">{{title|default('Tabs')}}</h2>
+<div id="{{id}}">
+	<ul>
+		{% for element in elements %}
+			<li><a href="#tabs-{{loop.index}}">{{element.name|default('Tab-{{loop.index}}')}}</a></li>
+		{% endfor %}
+	</ul>
+	{% for element in elements %}
+		<div id="tabs-{{loop.index}}">{{element.body|default('Lorem ipsum dolor sit amet, consectetur adipisicing elit.')}}</div>
+	{% endfor %}
+</div>
+<script type="text/javascript">$( "#{{id}}" ).tabs();</script>

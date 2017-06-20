@@ -1,0 +1,10 @@
+<div id="{{id}}" class="btn-group">
+  <button type="button" class="btn {{size_class|default('')}} {{style_class|default('btn-default')}} {{dropdown_action_class|default('dropdown-toggle')}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{dropdown_name|defalt()}} <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+   {% for button in buttons %}
+    <li><a class="{{size_class|default('')}} {{style_class|default('')}}" href="{{button.href|default('#')}}">{{button.text|default('')}}</a></li>
+   {% endfor %}
+  </ul>
+</div>

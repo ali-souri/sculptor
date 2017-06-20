@@ -1,0 +1,8 @@
+<ul style="width:100px;" id="{{id}}">
+	{% for element in elements %}
+		<li><div>{{element.name|default('Item-{{loop.index}}')}}</div></li>
+	{% endfor %}
+</ul>
+<script type="text/javascript">
+$( "#{{id}}" ).menu();
+</script>

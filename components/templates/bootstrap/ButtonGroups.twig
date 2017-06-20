@@ -1,0 +1,7 @@
+<div id="{{id}}" class="btn-group {{vertical_class|default('')}} {{group_class|default('')}} {{size_class|default('')}}" role="group" aria-label="{{label|default('')}}">
+
+{% for button in buttons %}
+  <button type="button" class="btn {{button.style_class|default('btn-default')}} {{button.size_class|default('')}}">{{button.text|default('')}}</button>
+{% endfor %}
+
+</div>

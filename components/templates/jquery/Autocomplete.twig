@@ -1,0 +1,33 @@
+<h2 data-id="{{id}}" class="demoHeaders">{{title|default('Autocomplete')}}</h2>
+<div>
+	<input id="{{id}}" title="type &quot;a&quot;">
+</div>
+<script>
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$("#{{id}}").autocomplete({
+	source: {{source|default('availableTags')}}
+});
+</script>

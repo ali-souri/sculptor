@@ -1,0 +1,10 @@
+{% set randnum = random() %}
+<div id="{{id}}" class="input-group">
+  {% if befor_label is defined %}
+  		<span class="input-group-addon" id="basic-addon{{randnum}}">{{befor_label|default('')}}</span>
+  {% endif %}
+  <input type="text" class="form-control" placeholder="{{placeholder|default('')}}" aria-describedby="basic-addon{{randnum}}"/>
+  {% if after_label is defined %}
+  		<span class="input-group-addon" id="basic-addon{{randnum}}">{{after_label|default('')}}</span>
+  {% endif %}
+</div>

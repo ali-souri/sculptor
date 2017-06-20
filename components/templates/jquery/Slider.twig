@@ -1,0 +1,7 @@
+<div id="{{id}}"></div>
+<script type="text/javascript">
+$( "#{{id}}" ).slider({
+	range: true,
+	values: [ {{start|default('0')}}, {{end|default('100')}} ]
+});
+</script>

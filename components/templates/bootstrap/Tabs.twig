@@ -1,0 +1,6 @@
+<ul id="{{id}}" class="nav nav-tabs">
+  {% for button in buttons %}
+  	 <li role="presentation" {% if button.active is defined %} {% if button.active %} class="active" {% endif %} {% elseif button.disabled is defined %} class="disabled" {% endif %} ><a href="{{button.href|default('#')}}">{{button.text|default('')}}</a></li>	 
+  {% endfor %}
+</ul>
+{# {% if loop.index==1 %}class="active"{% endif %} #}

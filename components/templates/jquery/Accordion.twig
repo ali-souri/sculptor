@@ -1,0 +1,8 @@
+<h2 data-id="{{id}}" class="demoHeaders">{{title|default('Accordion')}}</h2>
+<div id="{{id}}">
+	{% for element in elements %}
+		<h3>{{element.heading|default('Heading')}}</h3>
+		<div>{{element.heading|default('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}}</div>
+	{% endfor %}
+</div>
+<script>$("#{{id}}").accordion();</script>

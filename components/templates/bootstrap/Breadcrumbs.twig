@@ -1,0 +1,5 @@
+<ol id="{{id}}" class="breadcrumb">
+	{% for link in links %}
+        {% if link.active is defined %} {% if link.active %} <li class="active">{{link.name|default('Link')}}</li> {% endif %}{% else %}<li><a href="{{link.href|default('#')}}">{{link.name|default('Link')}}</a></li>{% endif %}
+    {% endfor %}
+</ol>

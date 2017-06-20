@@ -1,0 +1,5 @@
+<div id="{{id}}" class="jumbotron">
+  <h1>{{title|default('Hello, world!')}}</h1>
+  <p> {{text|default('This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.')}} </p>
+  <p><a class="btn {{button.style_class|default('btn-primary')}} {{button.size_class|default('btn-lg')}}" href="{{button.link|default('btn-lg')}}" role="button">{{button.name|default('Learn more<')}}</a></p>
+</div>

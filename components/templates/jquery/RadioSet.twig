@@ -1,0 +1,10 @@
+<h2 data-id="{{id}}" class="demoHeaders">{{title|default('Checkboxradio')}}</h2>
+<form style="margin-top: 1em;">
+	<div id="{{id}}">
+		{% for element in elements %}
+			{% set foo = random() %}
+			<input type="radio" id="radio{{foo}}" name="{{element.name}}"><label for="radio{{foo}}">{{element.text}}</label>
+		{% endfor %}
+	</div>
+</form>
+<script type="text/javascript">$( "#{{id}}" ).buttonset();</script>

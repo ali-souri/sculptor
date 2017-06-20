@@ -1,0 +1,35 @@
+<h2 data-id="{{id}}" class="demoHeaders">{{title|default('Dialog')}}</h2>
+<p>
+	<button id="{{id}}-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>{{button_text|default('Open Dialog')}}
+	</button>
+</p>
+<div id="{{id}}" title="{{title|default('Dialog Title')}}">
+	<p>{{title|default('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}}</p>
+</div>
+<script type="text/javascript">
+$( "#{{id}}" ).dialog({
+	autoOpen: false,
+	width: 400,
+	buttons: [
+		{
+			text: "Ok",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+// Link to open the dialog
+$( "#{{id}}-link" ).click(function( event ) {
+	$( "#{{id}}" ).dialog( "open" );
+	event.preventDefault();
+});
+</script>

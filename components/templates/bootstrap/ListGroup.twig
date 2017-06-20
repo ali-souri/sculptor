@@ -1,0 +1,5 @@
+<ul id="{{id}}" class="list-group">
+	{% for element in elements %}
+  		<li class="list-group-item {{additional_class|default('')}}">{{element.text|default('The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.')}}</li>
+	{% endfor %}
+</ul>
