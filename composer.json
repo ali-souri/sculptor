@@ -4,6 +4,7 @@
     "description": "Sculptor,the source of automatically html , css and javascript genaration with PHP",
     "keywords": ["templating","ui-generator","PHP2JS","php2js","bootstrap","jquery"],
     "license": "MIT License",
+    "version": "1.0.0",
      "authors": [
         {
             "name": "Ali Souri",
