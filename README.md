@@ -9,19 +9,27 @@ Meanwhile this source represents a vast range of components for dynamic conversi
 For using Sculptor you need to download and install it first.
 
 ## Download:
-You can download the source code through composer or from this link:
+For using Sculptor you need to install it through composer :
+
+`#> composer require konjed/sculptor:dev-master@dev`
+
+Although you can download the source code manually from this link:
 
 [Sculptor Github](https://github.com/ali-souri/sculptor)
 
-## Install:
-After downloading don’t forget to update the composer inside of the folder to get all of the required utilities:
+## Install Manually:
+After downloading manually don’t forget to update the composer inside of the folder to get all of the required utilities:
 
-`#> php composer update`
+`#> composer update`
 
 ## Use:
 After that for using the tools of source you are only supposed to require the main file of Sculptor (or the autoload of your vendor folder):
 
-`Require '/path/to/sculptor/Sculptor.php';`
+`require '/path/to/sculptor/Sculptor.php';`
+
+Or in case of using composer:
+
+`require "vendor/autoload.php";`
 
 # Develop:
 All of the tools of Sculptor is accessible from the main file and you just have to instantiate the Sculptor class in the main file:
