@@ -1,6 +1,4 @@
-![Image of Sculptor](http://ict-schools.ir/jsschool/web/images/sculptor-logo-small.png)
-
-# Sculptor
+# ![Image of Sculptor](http://ict-schools.ir/jsschool/web/images/sculptor-logo-small.png)
 CookBook Version : 1.0.0
 
 # What is Sculptor?
