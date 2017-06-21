@@ -1,4 +1,21 @@
 {
+	"name": "konjed/sculptor",
+    "type": "library",
+    "description": "Sculptor,the source of automatically html , css and javascript genaration with PHP",
+    "keywords": ["templating","ui-generator","PHP2JS","php2js","bootstrap","jquery"],
+    "license": "MIT License",
+     "authors": [
+        {
+            "name": "Ali Souri",
+            "email": "alisouri@gmail.com",
+            "role": "Lead Developer"
+        }
+    ],
+     "autoload": {
+        "psr-0": {
+            "Sculptor": "./"
+        }
+    },
     "require": {
         "twig/twig": "~1.0"
     } ,
