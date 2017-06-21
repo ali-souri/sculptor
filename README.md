@@ -90,7 +90,7 @@ These files are supposed to be written by the rules of Symphony twig template en
 
 and the name instead of Template would be the name of your template. And then you will have to put all of your templates in an individual directory around your system in a directory and then declare the address of directory with the below method of Sculptor:
 
-`$app→setExtraCssPath(“/path/to/your/folder”);`
+`$app->setExtraCssPath(“/path/to/your/folder”);`
 
 #The Document Object:
 Eventually there is a very important question :
@@ -98,14 +98,14 @@ What are we supposed to do if we want Sculptor to render whole HTML page?
 And the answer is :
 By using the Document Object which represents whole tools of generating a page. And making a new document is ridiculously easy:
 
-`$document = $app→makeDocument();`
+`$document = $app->makeDocument();`
 
 Now we discuss the methods of the Document Object:
 
 ## Add:
 – If you want to put an element directly in the document you will just need to use the add method:
 
-`$document→add($btn);`
+`$document->add($btn);`
 
 this method will add the &btn element (which we have made before) directly to the document.
 
@@ -115,10 +115,10 @@ this method will add the &btn element (which we have made before) directly to th
 – If you want to put or add an element to another element instead of body there are two Sculptor method for that, putIn and addIn:
 
 ```
-$btn2=$app→makeElement("button","test2",["class"=>"btn2"]);
-$btn3=$app→makeElement("button","test3",["class"=>"btn3"]);
-$div1 = $app→makeElement( "div" , "" , [ "class" => "div1" , "style" => 'width:100%']);
-$document($btn)→putIn($div1);
+$btn2=$app->makeElement("button","test2",["class"=>"btn2"]);
+$btn3=$app->makeElement("button","test3",["class"=>"btn3"]);
+$div1 = $app->makeElement( "div" , "" , [ "class" => "div1" , "style" => 'width:100%']);
+$document($btn)->putIn($div1);
 $document($btn2)->addIn($div1);
 ```
 
@@ -176,7 +176,7 @@ But besides of typical functions Sculptor can also convert event listeners of ja
 ## Sculptor event listener:
 The main event listener between js methods is the addEventListener method so there is the corresponding equivalent of that in the sculptor:
 
-`$JS($div1)→addEventListener("click",function($obj){$obj->target->style->visibility = "hidden";});`
+`$JS($div1)->addEventListener("click",function($obj){$obj->target->style->visibility = "hidden";});`
 
 This method will make the below js code after execution (and the rendering phase which will be explained to you soon):
 
