@@ -78,4 +78,145 @@ Sculptor supports lots of HTML components of both jquery and bootstrap CSS sourc
 `$inpgr = $app->makeComponent( "InputGroups" , [ "befor_label" => "InputGroup1:" , "name" => "test1" , "placeholder" => "Give Me A Test" ]);`
 
 As you can see there are only two parameters for the method , which the first one is the name of component and second one is the array of data for rendering the template of component.
-Accordingly it’s expectable that there should be some template files in the system. Interestingly that’s correct , you can find all of the component templates in the component folder of Sculptor source under a folder of the CSS source. But for giving you a preview of the rendered components we suggest you to see the links of all Sculptor components in the below table:
+Accordingly it’s expectable that there should be some template files in the system. Interestingly that’s correct , you can find all of the component templates in the component folder of Sculptor source under a folder of the CSS source. But for giving you a preview of the rendered components we suggest you to see the links of all Sculptor components in the below link:
+
+[Components](https://github.com/ali-souri/sculptor/blob/master/components/COMPONENTS.md)
+
+# What if a good developer wants to make his own Components?
+That’s totally possible. You just need to make all of your templates in the appropriate template files.
+These files are supposed to be written by the rules of Symphony twig template engine and with the name by the structure of below:
+
+`Template.twig` Or `Template.thml.twig`
+
+and the name instead of Template would be the name of your template. And then you will have to put all of your templates in an individual directory around your system in a directory and then declare the address of directory with the below method of Sculptor:
+
+`$app→setExtraCssPath(“/path/to/your/folder”);`
+
+#The Document Object:
+Eventually there is a very important question :
+What are we supposed to do if we want Sculptor to render whole HTML page?
+And the answer is :
+By using the Document Object which represents whole tools of generating a page. And making a new document is ridiculously easy:
+
+`$document = $app→makeDocument();`
+
+Now we discuss the methods of the Document Object:
+
+## Add:
+– If you want to put an element directly in the document you will just need to use the add method:
+
+`$document→add($btn);`
+
+this method will add the &btn element (which we have made before) directly to the document.
+
+### – Remarkable Tip  : please be informed that the rendered html of the &btn object will be put directly in the body tag of the page.
+
+## putIn and addIn:
+– If you want to put or add an element to another element instead of body there are two Sculptor method for that, putIn and addIn:
+
+```
+$btn2=$app→makeElement("button","test2",["class"=>"btn2"]);
+$btn3=$app→makeElement("button","test3",["class"=>"btn3"]);
+$div1 = $app→makeElement( "div" , "" , [ "class" => "div1" , "style" => 'width:100%']);
+$document($btn)→putIn($div1);
+$document($btn2)->addIn($div1);
+```
+
+after execution of above code we would make three new elements and then put them into an other object in the document.
+
+### – Remarkable Tip  : Don’t forget that the ‘putIn’ method will erase all of the previous contents of the target element and then put the other element in it , but ‘addIn’ will just add it alongside the other elements.
+
+### – Remarkable Tip  : You can always make your own pedigree of elements by using putIn and addIn methods but please don’t forget to add the head ancestor of the whole pedigree to the document using the add method otherwise the document object won’t render the whole pedigree.
+
+After making and adding all elements together you can render your own HTML using the render method of document:
+
+```
+$html = $document->render();
+echo $html;
+```
+
+As the final part of this section , I should say you can also set your own style sheets and also scripts in the page even the external files. There are some methods for that in the Sculptor:
+
+```
+$document->addStyleURL("url");
+$document->addStyle(“style_tag_string”);
+```
+
+```
+$document->addScriptURL("url");
+$document->addScript(“script_tag_string”);
+```
+
+# Sculptor PHP to JavaScript:
+Sculptor has a very set of tools for dynamically generating JavaScript component using just pure PHP components.
+This functionality can really raise the ability of more easily integration of your codes and also its coherence . Nevertheless you can make lots of client side controls on your application using just PHP components.
+On the other hand it makes the JavaScript coding so more easy for PHP developers because you just need to know some basic rules of javascript.
+Let’s start , first of all you have to make the JSBuilder object which is so easy:
+
+`$JS = $app->makeJSBuilder();`
+
+in the above line of code the $JS variable represents the JS object of Sculptor which can handle all of the JS functionalities of Sculptor.
+
+## How to make a JS function in Sculptor:
+That’s so easy , because of defineJsFunction:
+
+`$JS->defineJsFunction("click_callback_opacity",function($input_object){$input_object->target->style->opacity= "0.5";});`
+
+As you can see the above method accepts two inputs , the first one is the a string which will be the name of js function and the second one is a closure PHP function which will be converted to the body of js function. The converted string of the javascript function will be like this:
+
+```
+function click_callback_opacity(input_object) { 
+	input_object.target.style.opacity="0.5";
+}
+```
+
+and that’s a legitimate js function.
+But besides of typical functions Sculptor can also convert event listeners of javascript:
+
+## Sculptor event listener:
+The main event listener between js methods is the addEventListener method so there is the corresponding equivalent of that in the sculptor:
+
+`$JS($div1)→addEventListener("click",function($obj){$obj->target->style->visibility = "hidden";});`
+
+This method will make the below js code after execution (and the rendering phase which will be explained to you soon):
+
+`document.getElementById('sculptor-313704410').addEventListener ("click" ,function (obj){obj.target.style.visibility="hidden";});`
+
+and that is a real javascript event listener implementation.
+
+### – Remarkable Tip  : The sculptor-313704410 is the id of the considered element generated automatically by Sculptor , if you want to customize it just add the id attribute when you are creating the element.
+
+## Sculptor jQuery:
+
+You can use convert PHP to jQuery using sculptor because it supports most of jQuery api. Like the simple methods:
+
+`$JS($div1)->slideToggle();`
+
+and you can also use the jQuery event handler even with the other elements in the document:
+
+`$JS($btn1)->on("click",function() use ($JS,$div1) {$JS($div1)->slideToggle();});`
+
+the event listener will be converted to this:
+
+```
+$("#btn1").on("click",function () { 
+	 $("#sculptor-71182252").slideToggle(); 
+}); 
+```
+
+### – Remarkable Tip  : Don’t forget to set the ‘use’ key word for the function because the PHP function needs it to recognize external variables.
+### – Remarkable Tip  : you can use your own string CSS selector instead of $btn1. The sculptor supports all of the CSS selectors.
+
+After writing your codes please don’t forget to render and put your javascript in the page:
+
+`$document->addScript($JS->render());`
+
+and please do it before rendering the whole document.
+
+Thank you very much
+Good Luck
+Ali Souri
+
+
+
+
