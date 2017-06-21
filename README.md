@@ -1,3 +1,5 @@
+![Image of Sculptor](http://ict-schools.ir/jsschool/web/images/sculptor-logo.png)
+
 # Sculptor
 CookBook Version : 1.0.0
 
@@ -56,11 +58,11 @@ so you will have to choose the theme name from the themes of jQuery-ui themes.
 # Want to make an HTML Element?
 It’s so easy in Sculptor:
 
-`$btn = $app→makeElement( "button" , "test" , [ "class"  => "btn" , "id" => "btn1"]);`
+`$btn = $app->makeElement( "button" , "test" , [ "class"  => "btn" , "id" => "btn1"]);`
 
 As you can see you just have to use makeElement method of the Sculptor object. This method accepts the name of HTML tag in the first input , the body text of tag in the second input and the array of attributes in the third input. However the $btn object is an Element Object of Sculptor and it’s not yet viewable as HTML. For see the HTML equivalent of the Element object you have to render the element:
 
-`echo $btn→render();`
+`echo $btn->render();`
 
 The result of code line ahead would be like the below HTML tag:
 
@@ -68,14 +70,14 @@ The result of code line ahead would be like the below HTML tag:
 
 But don’t be mad if you forget to put some attributes in the input array of makeElement method , you can add it after:
 
-`$btn→addAttributes(["type" => "button" , "name" => "submit" ]);`
+`$btn->addAttributes(["type" => "button" , "name" => "submit" ]);`
 
 let’s see what else sculptor got for making HTML:
 
 # Sculptor Components: 
 Sculptor supports lots of HTML components of both jquery and bootstrap CSS sources and you just need to use the simple method ‘makeComponent’ for it:
 
-`$inpgr = $app→makeComponent( "InputGroups" , [ "befor_label" => "InputGroup1:" , "name" => "test1" , "placeholder" => "Give Me A Test" ]);`
+`$inpgr = $app->makeComponent( "InputGroups" , [ "befor_label" => "InputGroup1:" , "name" => "test1" , "placeholder" => "Give Me A Test" ]);`
 
 As you can see there are only two parameters for the method , which the first one is the name of component and second one is the array of data for rendering the template of component.
 Accordingly it’s expectable that there should be some template files in the system. Interestingly that’s correct , you can find all of the component templates in the component folder of Sculptor source under a folder of the CSS source. But for giving you a preview of the rendered components we suggest you to see the links of all Sculptor components in the below table:
